@@ -1,0 +1,11 @@
+body, tw-story{
+	background-color: white;
+	color: black;
+}
+
+tw-passage{
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	width:69%;
+	height:69%;
+	border:2px solid red;
+}
