@@ -1,14 +1,172 @@
-::StoryData
+:: StoryData
 {
 	"ifid": "520538D4-4981-462D-A9BF-6870ABDAF177",
 	"start": "Start",
-    "format": "Sugarcube",
-    "format-version": "2.31.1",
+    "format": "Harlowe",
+    "format-version": "3.2.2",
     "zoom": 1
 }
 
 :: StoryTitle
-meri & fifth
+    meri & fifth
 
 :: Start
-this is the passage
+    This is the start passage
+
+    -> go to the [[test zone|prototype-holder]]
+
+
+
+
+
+<!-- PROTOTYPE! -->
+<!-- PROTOTYPE! -->
+:: prototype-holder
+{
+    <div class="proto-holder">
+        <div class="bg-zone">(display:"bgImg")</div>
+
+        <div class="the-stuff">
+            <div class="sprite-zone">
+                <div class="sprite-holder l-column">
+                    (display: "spriteHolder1")
+                </div>
+                <div class="sprite-holder r-column">
+                    (display: "spriteHolder2")
+                </div>
+            
+            </div>
+
+            <div class="prose-zone">
+                <div class="prose-scroll">
+                    <div class="prose-itself">
+                        |prose>[(display:"convo1")]
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+:: convo1
+{
+<!-- INIT -->
+    (replace: ?sprite1)[
+        <img src="img/1.png" style="height:150px;">
+    ]
+
+    (set: $slideRight to 
+        (transition:"slide-right") +
+        (transition-time:.420s)
+    )
+
+    (set: $slideLeft to 
+        (transition:"slide-left") +
+        (transition-time:.420s)
+    )
+<!-- INIT -->
+
+    $slideRight[
+        <div class="left guyf">
+            <b>GUYF:</b> lorem ipsum do it me?
+        </div> ]
+    <br>
+
+    (click: ?page)[==
+    $slideLeft[
+    <div class="right frog">
+        <b>FROG:</b> me say a bunch of words? oh no, um, 
+    </div>]
+        <br>
+
+    (click: ?page)[==
+    $slideRight[
+    <div class="left guyf">
+        <b>GUYF:</b> you can talk about how thec ats are criminals, but not thought, becaucse they are only mail characters.
+    </div> ]
+        <br>
+
+    (click: ?page)[==
+    $slideLeft[
+    <div class="right frog">
+        <b>FROG:</b> & goblins? 
+    </div> ]
+        <br>
+
+    (click: ?page)[==
+    (replace: ?sprite1)[
+        <img src="img/1-2.png" style="height:150px;">
+    ]
+    $slideRight[
+    <div class="left guyf">
+        <b>GUYF:</b> goblins. 
+    </div> ]
+        <br>
+
+    (click: ?page)[==
+    $slideLeft[
+    <div class="right frog">
+        <b>FROG:</b> um goblins. & also fifth is there there & they want to buy groceries 
+    </div> ]
+        <br>
+
+    (click: ?page)[==
+    $slideRight[
+    <div class="left guyf">
+        <b>GUYF:</b> & alos furniture from Ikea.
+    </div>]
+        <br><br><br>
+
+<div class="nav">
+    (link-reveal:"> goblins.")[
+        (replace:?prose)[
+            (display:"convo2-1")
+        ]
+    ]
+
+    <br>
+
+    (link-reveal:"> no, ikea")[
+        (replace:?prose)[
+            (display:"convo2-2")
+        ]
+    ]
+</div>
+}
+
+:: convo2-1
+{
+    scrungo
+
+    (click: ?page)[==<div class="nav">
+        (link-reveal:"> oh shit.")[
+            (replace:?prose)[
+                (display:"convo1")
+            ]
+        ]
+    </div>
+}
+:: convo2-2
+{
+    yeah exactly
+
+    (click: ?page)[==<div class="nav">
+        (link-reveal:"> hell yes.")[
+            (replace:?prose)[
+                (display:"convo1")
+            ]
+        ]
+    </div>
+}
+<!-- HELPFUL! -->
+<!-- HELPFUL! -->
+:: spriteHolder1
+    |sprite1>[<img src="img/1.png" style="height:150px;">]
+
+:: spriteHolder2
+    |sprite2>[<img src="img/2.png" style="transform:scaleX(-1);height:150px;">]
+
+:: bgImg
+    |bgImg>[]
